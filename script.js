@@ -18,20 +18,20 @@ function dragStart() {
 function dragEnd() {
   this.className = 'fill';
 }
-function dragEnter() {
-  console.log('dragEnter');
-}
+
 function dragOver(e) {
+  // prevent default to allow drop
   e.preventDefault();
 }
 function dragEnter(e) {
-  e.preventDefault();
   this.className += ' hovered';
 }
 function dragLeave() {
   this.className = 'empty';
 }
-function dragDrop() {
+function dragDrop(e) {
+  // prevent default action (open as link for some elements)
+  e.preventDefault();
   this.className = 'empty';
   this.append(fill);
 }
